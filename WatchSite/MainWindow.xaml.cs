@@ -42,8 +42,10 @@ namespace WatchSite
         private string login;
         private string pass;
         private string osn;
-        private Thread thread2;
-        private Thread thread;
+        private Task task;
+        private Task task2;
+        //private Thread thread2;
+        //private Thread thread;
         private int countProverok;
         private List<Product> listProducts;
         private void button_Click(object sender, RoutedEventArgs e)
@@ -79,10 +81,21 @@ namespace WatchSite
                 {
                     MessageBox.Show("Период проверки неправильный");
                 }
-                thread = new Thread(() => MyAnalyze());
-                thread.IsBackground = true;
-                thread.Start();
+                task = new Task(MyAnalyze);
+                task.Start();
+                try
+                {
+                    task.Wait();
+                }
+                catch (AggregateException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                //thread = new Thread(() => MyAnalyze());
+                //thread.IsBackground = true;
+                //thread.Start();
                 timer.Start();
+
 
                 
             }
@@ -99,17 +112,38 @@ namespace WatchSite
 
         private void timerTick(object sender, EventArgs e)
         {
-            if (!thread.IsAlive && thread2 == null)
+            if (task.Status != TaskStatus.Running && task2 == null)
             {
-                thread2 = new Thread(() => MyAnalyze());
-                thread2.IsBackground = true;
-                thread2.Start();
+                task2 = new Task(MyAnalyze);
+                task2.Start();
+                try
+                {
+                    task2.Wait();
+                }
+                catch (AggregateException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                //thread2 = new Thread(() => MyAnalyze());
+                //thread2.IsBackground = true;
+                //thread2.Start();
             }
-            else if (thread2 != null && !thread2.IsAlive)
+            else if (task2 != null && task2.Status != TaskStatus.Running)
             {
-                thread2 = new Thread(() => MyAnalyze());
-                thread2.IsBackground = true;
-                thread2.Start();
+                task2 = new Task(MyAnalyze);
+                task2.Start();
+
+                try
+                {
+                    task2.Wait();
+                }
+                catch (AggregateException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                //thread2 = new Thread(() => MyAnalyze());
+                //thread2.IsBackground = true;
+                //thread2.Start();
             }
             
 
