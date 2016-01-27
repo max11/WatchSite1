@@ -33,7 +33,7 @@ namespace WatchSite
             catch (Exception ex)
             {
 
-                MessageBoxResult result = MessageBox.Show("Страница возвратила ошибку, увеличиваем задержку? Если ошибка повторяется, возможно на ip наложили санкции.", "Ошибка 404", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                MessageBoxResult result = MessageBox.Show("Страница возвратила ошибку "+ ex.Message+" Продолжить?", "Ошибка", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
                     return tryTakeProducts(url, 1000);
