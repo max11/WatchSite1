@@ -74,7 +74,7 @@ namespace WatchSite
                 Thread.Sleep(Zaderzhka);
             }
             //<div id="market_item24046" class="market_row">
-            File.WriteAllText("C:\\Users\\Maxs\\Desktop\\www1.txt", page);
+            //File.WriteAllText("C:\\Users\\Maxs\\Desktop\\www1.txt", page);
             //div[@class='market_row_inner_cont']
             List<Product> listProducts = new List<Product>();
 
