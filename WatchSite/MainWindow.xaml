@@ -1,0 +1,27 @@
+﻿<Window x:Class="WatchSite.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WatchSite"
+        mc:Ignorable="d"
+        Title="WatchSite" Height="350" Width="525">
+    <Grid>
+        <Button x:Name="button" Content="Наблюдать" Margin="214,259,0,0" Click="button_Click" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75"/>
+        <TextBox x:Name="textBox"  Tag="Email" ToolTip="Email" Height="23" Margin="166,10,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock" Background="PaleVioletRed" Margin="10,293,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Полный url магазина VK" VerticalAlignment="Top" RenderTransformOrigin="0.306,-1.125" Height="28" Width="151"/>
+        <TextBox x:Name="osnMail" HorizontalAlignment="Left" Height="23" Margin="166,69,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="183"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="10,69,0,0" TextWrapping="Wrap" Text="Ваша основная почта" VerticalAlignment="Top" Width="151" ToolTip="Ваш основной ящик"/>
+        <TextBlock x:Name="textBlock2_Copy" HorizontalAlignment="Left" Margin="10,117,0,0" TextWrapping="Wrap" Text="Почта на YANDEX.RU" ToolTip="Нужен для отправки email на ваш основной ящик" VerticalAlignment="Top" Width="151"/>
+        <TextBox x:Name="loginYa" HorizontalAlignment="Left" Height="23" Margin="166,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="183"/>
+        <TextBox x:Name="passYa" HorizontalAlignment="Left" Height="23" Margin="166,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="183"/>
+        <TextBlock x:Name="textBlock2_Copy1" HorizontalAlignment="Left" Margin="10,169,0,0" TextWrapping="Wrap" Text="Пароль на YANDEX.RU" VerticalAlignment="Top" Width="151"/>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="135,212,0,0" TextWrapping="Wrap" Text="Часы:" VerticalAlignment="Top"/>
+        <TextBox x:Name="Chasy" HorizontalAlignment="Left" Height="23" Margin="169,212,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="57"/>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="236,212,0,0" TextWrapping="Wrap" Text="Минуты:" VerticalAlignment="Top"/>
+        <TextBox x:Name="Minuty" HorizontalAlignment="Left" Height="23" Margin="285,212,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="64"/>
+        <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Margin="10,212,0,0" TextWrapping="Wrap" Text="Период проверки" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
