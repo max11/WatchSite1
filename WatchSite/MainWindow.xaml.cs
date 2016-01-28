@@ -133,7 +133,15 @@ namespace WatchSite
                 if (!File.Exists("Products.json"))
                 {
                     //первый запуск
-                    File.WriteAllText(@"Products.json", JsonConvert.SerializeObject(listProducts));
+                    try
+                    {
+                        File.WriteAllText(@"Products.json", JsonConvert.SerializeObject(listProducts));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ошибка записи файла. " + ex.Message);
+                    }
+
 
                 }
                 else
