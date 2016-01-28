@@ -156,8 +156,15 @@ namespace WatchSite
                             allprod = allprod + " | " + prod.Name + " | " + prod.Price + " | " + prod.Url + " ; \n\r ";
                         }
                         Email.SendMail(login, pass, osn, allprod);
+                        try
+                        {
+                            File.WriteAllText(@"Products.json", JsonConvert.SerializeObject(listProducts));
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Файл не записался. " + ex.Message);
+                        }
 
-                        File.WriteAllText(@"Products.json", JsonConvert.SerializeObject(listProducts));
                     }
 
                 }
